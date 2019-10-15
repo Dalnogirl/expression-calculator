@@ -13,6 +13,7 @@ function expressionCalculator(expr) {
         }
         if (expr[i] === ')') {
             err--;
+            
         }
     }
     if (err !== 0) {
@@ -65,8 +66,8 @@ function expressionCalculator(expr) {
             }
             //деление
             if (array[i] === '/') {
-                if (+array[i + 1] === 0 && +array[i - 1] !== 3) {
-                    throw new Error('TypeError: Devision by zero.')
+                if (+array[i + 1] === 0) {
+                    throw new Error("TypeError: Division by zero.")
                 }
                 let result = +array[i - 1] / +array[i + 1];
                 array.splice(array.indexOf(array[i]) - 1, 3, result);
